@@ -28,23 +28,23 @@ const employeeSchema = new Schema({
       },
     },
   ],
-  timesheets: [
-    {
-      date: {
-        type: Date,
-        required: true,
-      },
-      activities: [
-        {
-          activityId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Activity",
-          },
-          hoursWorked: Number,
-        },
-      ],
-    },
-  ],
+  // timesheets: [
+  //   {
+  //     date: {
+  //       type: Date,
+  //       required: true,
+  //     },
+  //     activities: [
+  //       {
+  //         activityId: {
+  //           type: mongoose.Schema.Types.ObjectId,
+  //           ref: "Activity",
+  //         },
+  //         hoursWorked: Number,
+  //       },
+  //     ],
+  //   },
+  // ],
 });
 
 const Employee = mongoose.model('Employee', employeeSchema);

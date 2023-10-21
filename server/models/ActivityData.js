@@ -1,5 +1,4 @@
-const Activity = require('./Activity');
-
+// Activities for timesheet model
 const predefinedActivity = [
     {
         name: "Head Machining",
@@ -45,10 +44,4 @@ const predefinedActivity = [
     },
 ];
 
-Activity.insertMany(predefinedActivity)
-.then((activities) => {
-    console.log(activities)
-})
-.catch((error) => {
-    console.log("Error Adding Activites to Database!");
-})
+module.exports = predefinedActivity;

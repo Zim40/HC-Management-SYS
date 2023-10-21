@@ -1,8 +1,8 @@
 const db = require('../config/connection');
 const mongoose = require('mongoose')
-
 const Employee = require('../models/Employee');
 const Activity = require('../models/Activity');
+const predefinedActivity = require('../models/ActivityData');
 
 // Sample data for employees
 const employeesData = [
@@ -14,64 +14,20 @@ const employeesData = [
         { timestamp: new Date(), type: "In" },
         { timestamp: new Date(), type: "Out" },
       ],
-      timesheets: [
-        {
-          date: new Date(),
-          activities: [
-            {
-              activityId: new mongoose.Types.ObjectId(), // Replace with a valid Activity ID
-              hoursWorked: 8,
-            },
-          ],
-        },
-      ],
+      // timesheets: [
+      //   {
+      //     date: new Date(),
+      //     activities: [
+      //       {
+      //         activityId: new mongoose.Types.ObjectId(), // Replace with a valid Activity ID
+      //         hoursWorked: 8,
+      //       },
+      //     ],
+      //   },
+      // ],
     },
-    // Add more employee data as needed
+    
   ];
-  const predefinedActivity = [
-    {
-        name: "Head Machining",
-    },
-    {
-        name: "Stave Machining",
-    },
-    {
-        name: "Assembly",
-    },
-    {
-        name: "Heading",
-    },
-    {
-        name: "Finishing",
-    },
-    {
-        name: "Branding & Wrapping",
-    },
-    {
-        name: "Heinrich Rework",
-    },
-    {
-        name: "Imported Barrel Reworks",
-    },
-    {
-        name: "Heinrich Made Barrel Repairs",
-    },
-    {
-        name: "Contract Barrel Repairs",
-    },
-    {
-        name: "Warehouse General",
-    },
-    {
-        name: "Oak Solutions Group",
-    },
-    {
-        name: "Training",
-    },
-    {
-        name: "Miscellaneous",
-    },
-];
   
   async function seedDatabase() {
     try {
