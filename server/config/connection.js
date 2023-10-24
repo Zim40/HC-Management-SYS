@@ -1,7 +1,10 @@
 // Connection to MongoDB database
+require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/HC-Management', {
+const url = process.env.CONNECTION
+
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

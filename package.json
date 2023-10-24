@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Zim40/HC-Management-SYS#readme",
   "dependencies": {
     "concurrently": "^8.2.1",
+    "dotenv": "^16.3.1",
     "nodemon": "^3.0.1"
   }
 }
