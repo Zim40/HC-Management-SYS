@@ -1,0 +1,10 @@
+.timeNow {
+    font-weight: 300;
+    font-size: 3em;
+    
+}
+.loading {
+    font-size: 2em;
+    font-weight: 300;
+    color: red
+}
