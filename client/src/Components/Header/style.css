@@ -1,10 +1,5 @@
-.timeNow {
-    font-weight: 300;
-    font-size: 3em;
-    
-}
-.loading {
-    font-size: 2em;
-    font-weight: 300;
-    color: red
+.header--container {
+    background-color: #1a1a1a;
+    border: 1px dotted white;
+    border-radius: 10px;
 }

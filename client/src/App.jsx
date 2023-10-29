@@ -1,6 +1,7 @@
 
 
 import Header from './Components/Header/index'
+import Time from './Components/Time/index';
 import './App.css'
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
   return (
     <>
       <div>
-          <Header />
+        <Time />
+          <Header title="Employee Attendance Tracker" />
+            
       </div>
     </>
   )

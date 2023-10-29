@@ -26,14 +26,16 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
+  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #1a1a1a
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  padding: 10px;
   
 
 }
@@ -48,15 +50,18 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  width: 200px;
+  margin: 10px;
+  border: 1px solid white
   
 }
-button:hover {
-  border-color: #646cff;
+.btnIn:hover {
+  border-color: green;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.btnOut:hover {
+  border-color: red;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
