@@ -7,15 +7,16 @@ const Activity = require('./Activity');
 const employeeSchema = new Schema({
   firstName: {
     type: String,
-    // required: true,
+    required: true,
   },
   lastName: {
     type: String,
-    // required: true,
+    required: true,
   },
   role: {
     type: String,
-    // required: true,
+    enum: ['ADMIN', 'EMPLOYEE', 'VISITOR'],
+    required: true,
   },
   email: {
     type: String,
