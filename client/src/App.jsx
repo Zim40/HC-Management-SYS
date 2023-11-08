@@ -1,4 +1,4 @@
-import NavBar from './Components/Header/Nav';
+
 
 import Header from './Components/Header/index'
 import Time from './Components/Time/index';
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <div>
-      <NavBar />
+      
         <Time />
         
           <Header title="Employee Attendance Tracker" />
