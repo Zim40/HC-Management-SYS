@@ -1,17 +1,19 @@
 import Container from 'react-bootstrap/Container';
-import {Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import Time from '../Time/index';
+import "./style.css";
 // import { Navbar, Nav } from 'react-bootstrap';
 
 // eslint-disable-next-line react/prop-types
-export default function NavBar({title, currentPage, handlePageChange}) {
+export default function NavBar({ currentPage, handlePageChange }) {
   return (
    <>
    <div>
-   <Navbar className="bg-body-tertiary">
+   <Navbar expand="lg" collapseOnSelect className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand onClick={() => handlePageChange("Home")} href="#home">{title}</Navbar.Brand>
+        <Navbar.Brand onClick={() => handlePageChange("Home")} href="#home" >{<Time />}</Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end" >
           <Nav >
               <Nav.Link 
               onClick={() => handlePageChange("Home")}
@@ -30,7 +32,7 @@ export default function NavBar({title, currentPage, handlePageChange}) {
               id="tabs"
               >Landing Page</Nav.Link>
           </Nav>
-          <Navbar.Text>
+          <Navbar.Text className="nav--text" style={{color: "green"}}>
             Signed in as: <a href="#login">Mark Otto</a>
           </Navbar.Text>
         </Navbar.Collapse>

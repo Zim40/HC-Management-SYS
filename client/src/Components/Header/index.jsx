@@ -30,10 +30,11 @@ export default function Header({ title }) {
             handlePageChange={handlePageChange} 
     
     />
+    </div>
     {renderPage()}
       
       
-    </div>
+    
     </>
   );
 }
