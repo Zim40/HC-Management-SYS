@@ -1,11 +1,12 @@
 .timeNow {
     font-weight: 600;
-    border: 1px solid white;
     border-radius: 10px;
-    /* background-color: #1a1a1a; */
+    border: 1px solid  rgba(216, 109, 22, 0.399);
     font-size: 1em;
     color: black;
-    flex: wrap;
+    padding: 5px;
+    margin: 0;
+    
 }
 .loading {
     font-size: 0.7em;
@@ -13,8 +14,9 @@
     color: red
 }
 
-@media (max-width: 767px) {
+@media (max-width: 445px) {
     .timeNow {
-        display: none;
+        display: flex;
+        flex-wrap: wrap;
     }
 }

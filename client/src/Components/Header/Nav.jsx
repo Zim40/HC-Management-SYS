@@ -14,7 +14,7 @@ export default function NavBar({ currentPage, handlePageChange }) {
         <Navbar.Brand onClick={() => handlePageChange("Home")} href="#home" >{<Time />}</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end" >
-          <Nav >
+          <Nav className="tabs--container" >
               <Nav.Link 
               onClick={() => handlePageChange("Home")}
               className={
@@ -30,7 +30,7 @@ export default function NavBar({ currentPage, handlePageChange }) {
               }
               href="#landingPage"
               id="tabs"
-              >Landing Page</Nav.Link>
+              >Attendance</Nav.Link>
           </Nav>
           <Navbar.Text className="nav--text" style={{color: "green"}}>
             Signed in as: <a href="#login">Mark Otto</a>
