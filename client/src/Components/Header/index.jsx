@@ -1,40 +1,23 @@
 import "./style.css";
-import NavBar from './Nav';
-import { useState } from 'react'
-import Home from '../Pages/Home';
-import LandingPage from '../Pages/LandingPage';
-
+import NavBar from "./Nav";
+import { useState } from "react";
 
 // Initial Header Tester Component
 // eslint-disable-next-line react/prop-types
 export default function Header({ title }) {
-  const [currentPage, setPage] = useState('Home');
+  const [currentPage, setPage] = useState("Home");
 
-  const renderPage = () => {
-    if(currentPage === 'Home') {
-      return <Home />
-    }
-    if(currentPage === 'LandingPage') {
-      return <LandingPage />
-    }
-  }
-  const handlePageChange = (page) => setPage(page)
-
+  const handlePageChange = (page) => setPage(page);
 
   return (
     <>
-   
-    <div className="header--container">
-    <NavBar title={title}
-            currentPage={currentPage}
-            handlePageChange={handlePageChange} 
-    
-    />
-    </div>
-    {renderPage()}
-      
-      
-    
+      <div className="header--container">
+        <NavBar
+          title={title}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      </div>
     </>
   );
 }
