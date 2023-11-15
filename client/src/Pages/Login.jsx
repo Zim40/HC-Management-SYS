@@ -1,6 +1,6 @@
 
 
-export default function LandingPage () {
+export default function Login () {
     return (
         <div> Testing Landing Page</div>
     )

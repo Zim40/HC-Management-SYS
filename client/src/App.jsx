@@ -1,6 +1,6 @@
 import Header from "./Components/Header/index";
 import Home from "./Pages/Home";
-import LandingPage from './Pages/LandingPage';
+import Login from './Pages/Login';
 import Attendance from './Pages/Attendance';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route 
               path="/"
-              element={<LandingPage />} />
+              element={<Login />} />
             <Route 
               path="/Attendance" 
               element={<Attendance />} />

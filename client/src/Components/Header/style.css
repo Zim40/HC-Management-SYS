@@ -23,6 +23,13 @@
       border: none;
       box-shadow: none;
     }
+    #tabs:hover {
+      /* background-color:  rgba(216, 109, 22, 0.399); */
+       border-radius: 5px;
+      transform: none; 
+      
+    }
+   
   }
 
 
@@ -42,8 +49,6 @@
 #tabs:hover {
   background-color:  rgba(216, 109, 22, 0.399);
   border-radius: 5px;
-  transform: scale(1.05);
-  
 }
 .tabs--container {
   white-space: nowrap;
