@@ -4,7 +4,7 @@ import { useState } from "react";
 
 // Initial Header Tester Component
 // eslint-disable-next-line react/prop-types
-export default function Header({ title }) {
+export default function Header() {
   const [currentPage, setPage] = useState("Home");
 
   const handlePageChange = (page) => setPage(page);
@@ -12,11 +12,9 @@ export default function Header({ title }) {
   return (
     <>
       <div className="header--container">
-        <NavBar
-          title={title}
-          currentPage={currentPage}
-          handlePageChange={handlePageChange}
-        />
+        <NavBar 
+          currentPage={currentPage} 
+          handlePageChange={handlePageChange} />
       </div>
     </>
   );
