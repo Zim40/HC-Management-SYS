@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express = require('express');
+const { authMiddleware } = require('./utils/auth');
 const path = require('path');
 const port = process.env.PORT || 5000;
 const db = require('./config/connection')
@@ -11,6 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(authMiddleware);
 app.use(routes);
 
 
