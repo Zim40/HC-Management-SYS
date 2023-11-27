@@ -58,7 +58,12 @@
   align-items: center;
   justify-content: end;
 }
-.loginBtn.logoutBtn {
+.loginBtn, .logoutBtn{
   background-color: rgba(216, 109, 22, 0.399);
+  color: black;
+}
+.loginBtn:hover, .logoutBtn:hover {
+  background-color: rgba(216, 109, 22, 0.867);
+  scale:calc(1.05);
 }
 
