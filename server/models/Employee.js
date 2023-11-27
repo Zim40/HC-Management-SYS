@@ -1,8 +1,7 @@
 // Employee model
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt');
-const Activity = require('./Activity');
+
 
 const employeeSchema = new Schema({
   firstName: {
@@ -24,10 +23,7 @@ const employeeSchema = new Schema({
     unique: true,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
-  password: {
-    type: String,
-    required: true,
-  },
+
   clockInOut: [
     {
       timestamp: {
@@ -43,17 +39,7 @@ const employeeSchema = new Schema({
  
 });
 
-employeeSchema.pre('save', async function (next) {
-  if(this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
-  next();
-});
 
-employeeSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-}
 
 
 const Employee = mongoose.model('Employee', employeeSchema);
