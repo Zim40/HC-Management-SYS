@@ -1,0 +1,8 @@
+form {
+    margin: 50px 0px;
+    max-width: 650px;
+
+}
+button.btn.btn-primary {
+    display: block;
+}

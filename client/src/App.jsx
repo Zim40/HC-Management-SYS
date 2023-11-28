@@ -1,6 +1,6 @@
 import Header from "./Components/Header/index";
 import Home from "./Pages/Home";
-import Login from './Pages/Login';
+import Login from './Pages/login/Login';
 import Attendance from './Pages/Attendance';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -20,13 +20,13 @@ function App() {
           <Routes>
             <Route 
               path="/"
-              element={<Login />} />
+              element={<Home />} />
             <Route 
               path="/Attendance" 
               element={<Attendance />} />
             <Route 
-              path="/home" 
-              element={<Home />} />
+              path="/Login" 
+              element={<Login />} />
           </Routes>
         </Router>
       

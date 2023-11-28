@@ -1,45 +1,50 @@
 @media (max-width: 767px) {
-    button.navbar-toggler.collapsed {
-      /* max-width: 70px; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      /* color: green; */
-    }
-    .tabs--container.navbar-nav {
-      margin: 10px 0px;
-      background: rgba(216, 109, 22, 0.399) ;
-      border-radius: 5px;
-    }
-    button.navbar-toggler {
-     max-width: 70px;
-    }
-   
-    .nav--text {
-      margin: 50px;
-      
-    }
-    .header--container {
-      border: none;
-      box-shadow: none;
-    }
-    #tabs:hover {
-      /* background-color:  rgba(216, 109, 22, 0.399); */
-       border-radius: 5px;
-      transform: none; 
-      
-    }
-   
+  button.navbar-toggler.collapsed {
+    /* max-width: 70px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color: green; */
+  }
+  .tabs--container.navbar-nav {
+    margin: 10px 0px;
+    background: rgba(216, 109, 22, 0.399);
+    border-radius: 5px;
+  }
+  button.navbar-toggler {
+    max-width: 70px;
   }
 
+  .nav--text {
+    margin: 50px;
+  }
+  .header--container {
+    border: none;
+    box-shadow: none;
+  }
+  #tabs:hover {
+    /* background-color:  rgba(216, 109, 22, 0.399); */
+    border-radius: 5px;
+    transform: none;
+  }
+  .container {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: center !important;
+  }
+  button.logBtn {
+    width: 140px;
+  }
+}
 
 .header--container {
-  border-bottom: 2px solid  rgba(216, 109, 22, 0.399);
+  border-bottom: 2px solid rgba(216, 109, 22, 0.399);
 }
 /* Navbar tabs */
-#tabs{
+#tabs {
   color: black;
-  margin:0px 30px;
+  margin: 0px 30px;
   font-size: 1.2em;
   font-weight: 600;
   transition: background-color 0.3s, border-radius 0.3s, font-size 0.1s;
@@ -47,23 +52,28 @@
   transform-origin: top left;
 }
 #tabs:hover {
-  background-color:  rgba(216, 109, 22, 0.399);
+  background-color: rgba(216, 109, 22, 0.399);
   border-radius: 5px;
 }
 .tabs--container {
   white-space: nowrap;
 }
+/* Login and Register buttons */
 .logBtn--container {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
-.loginBtn, .logoutBtn{
+.logBtn {
   background-color: rgba(216, 109, 22, 0.399);
   color: black;
+  width: 90px;
+  margin: 5px;
+  padding: 5px;
 }
-.loginBtn:hover, .logoutBtn:hover {
+.logBtn:hover {
   background-color: rgba(216, 109, 22, 0.867);
-  scale:calc(1.05);
+  transform: scale(1.05);
 }
-
