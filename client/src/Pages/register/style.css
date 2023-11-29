@@ -1,0 +1,7 @@
+input#formBasicCheckbox {
+    border: 1px solid black;
+}
+.form-check {
+    padding-left: 2em!important;
+    min-Height: 2em!important;
+}

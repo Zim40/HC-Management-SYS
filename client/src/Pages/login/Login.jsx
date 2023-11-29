@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <Form>
       <h1 style={{ textAlign: "left", fontSize: 24 }}>Login</h1>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicFirstName">
         
         <Form.Control
           type="username"
@@ -42,7 +42,7 @@ export default function Login() {
           autoComplete="username"
         />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicLastName">
         
         <Form.Control
           type="username"
