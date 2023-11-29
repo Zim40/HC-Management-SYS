@@ -2,6 +2,6 @@
 
 export default function Home () {
     return (
-        <div>Testing Home Page</div>
+        <div>Welcome to the landing page (Home)</div>
     )
 }
