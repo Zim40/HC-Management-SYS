@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const { authMiddleware } = require('./utils/auth');
+// const { authMiddleware } = require('./utils/auth');
 const path = require('path');
 const cors = require('cors');
 const port = process.env.PORT || 5000;
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(cors())
-app.use(authMiddleware);
+// app.use(authMiddleware);
 app.use(routes);
 
 

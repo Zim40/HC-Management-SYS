@@ -21,8 +21,8 @@ export default function Register() {
   };
   console.log(formData)
 
-  const handleSubmit = async () => {
-    // e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
         // POST new user function.
         const response = await fetch('http://localhost:5000/api/User', {
@@ -50,7 +50,7 @@ export default function Register() {
   };
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <h1 style={{ textAlign: "left", fontSize: 24 }}>Register</h1>
         <Form.Group className="mb-3" controlId="formBasicFirstName">
           <Form.Control
@@ -94,7 +94,7 @@ export default function Register() {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
