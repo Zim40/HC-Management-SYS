@@ -1,19 +1,19 @@
 const { Employee } = require("../models/index");
-// const { signToken } = require('../utils/auth');
+const { signToken } = require('../utils/auth');
 // Dont forget to return token with user data in res-response
 
 module.exports = {
   // POST A NEW USER
   async createUser(req, res) {
-    // Check if 1 admin already exists
+    // Check if the requested role is not 'ADMIN'
     if (req.body.role !== 'ADMIN') {
       try {
         const user = await Employee.create(req.body);
-        // const token = signToken(user);
-        console.log(user);
+        const token = signToken(user);
+  
         return res
           .status(200)
-          .json({ message: 'New user created', data: { user } });
+          .json({ message: 'New user created', data: { token, user } });
       } catch (err) {
         console.error(err);
         return res
@@ -21,20 +21,21 @@ module.exports = {
           .json({ message: 'Server side ERROR creating User.' });
       }
     } else {
-      // Check if 1 admin already exists
+      // Check if an admin already exists
       const existingAdmin = await Employee.findOne({ role: 'ADMIN' });
+  
       if (existingAdmin) {
         return res.status(404).json({ message: 'Admin Already Registered' });
       }
   
       try {
+        // Create the user with the role 'ADMIN'
         const user = await Employee.create(req.body);
-        
-        // const token = signToken(user);
-      
+        const token = signToken(user);
+  
         return res
           .status(200)
-          .json({ message: 'New user created', data: { user } });
+          .json({ message: 'New user created', data: { token, user } });
       } catch (err) {
         console.error(err);
         return res
@@ -43,13 +44,14 @@ module.exports = {
       }
     }
   },
+  
   //   GET ALL USERS
   async getAllUsers(req, res) {
     try {
       const user = await Employee.find();
       return res
         .status(200)
-        .json({ message: " All Users retrieved ", data: user });
+        .json({ message: " All Users retrieved ", data:  user });
     } catch (err) {
       console.log(err);
       return res

@@ -9,13 +9,15 @@ import Auth from "../../utils/auth";
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ currentPage, handlePageChange }) {
   const userRole = Auth.loggedIn() ? Auth.getProfile().data.role : null;
-  console.log(userRole);
+  
+  const user = Auth.loggedIn() ? Auth.getProfile().data : null;
+  
   return (
     <>
       <Navbar expand="lg" collapseOnSelect className="bg-body-tertiary">
         <Container>
           <Navbar.Brand>{<Time />}</Navbar.Brand>
-          {Auth.loggedIn() ? (
+          {Auth.loggedIn() && userRole === "ADMIN" ? (
             <>
               <Container>
                 <Navbar.Toggle />
@@ -50,7 +52,7 @@ export default function NavBar({ currentPage, handlePageChange }) {
                     </Link>
                   </Nav>
                   <Navbar.Text className="nav--text" style={{ color: "green" }}>
-                    Signed in as: <a href="#login">Mark Otto</a>
+                    Signed in as: <a href="#login">{`${user.firstName} ${user.lastName}`}</a>
                   </Navbar.Text>
                 </Navbar.Collapse>
               </Container>

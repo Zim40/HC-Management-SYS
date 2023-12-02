@@ -8,7 +8,8 @@ export default function Register() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    role: "",
+    email: "",
+    role: "EMPLOYEE",
     password: "",
   });
 
@@ -30,13 +31,19 @@ export default function Register() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
+            
         });
+        
         if (response.ok) {
             const responseData = await response.json();
-            console.log(responseData);
+            console.log(responseData.token);
+            const {token} = responseData.data;
+           
             console.log(`User with ${formData.role} created`, responseData);
-            Auth.loggedIn(response.token)
+          
+           Auth.login(token);
+        
         } else {
             console.error('Error creating user:', response.statusText );
         }
@@ -70,6 +77,16 @@ export default function Register() {
             value={formData.lastName}
             onChange={handleInputChange}
             autoComplete="username"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control
+            type="username"
+            placeholder="Enter Email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            autoComplete="email"
           />
         </Form.Group>
 

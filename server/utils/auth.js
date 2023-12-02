@@ -6,7 +6,8 @@ const secret = "mysecret";
 
 module.exports = {
     authMiddleware: function (req, res, next) {
-        let token = req.body.token || req.query.token || req.headers.authorization;
+        let token =  req.headers.authorization || req.body.token || req.query.token ;
+        
 
         if(req.headers.authorization) {
             token = token.split(' ').pop().trim();

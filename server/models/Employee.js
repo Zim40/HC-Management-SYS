@@ -16,7 +16,7 @@ const employeeSchema = new Schema({
   role: {
     type: String,
     enum: ['ADMIN', 'EMPLOYEE', 'VISITOR'],
-    required: true,
+    default: 'EMPLOYEE',
   },
   email: {
     type: String,
