@@ -27,8 +27,22 @@ export default function Login() {
     e.preventDefault()
     try {
       // Login logic
-      // const response = await fetch('')
-      Auth.login()
+      const response = await fetch('http://localhost:5000/api/User/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const responseData = await response.json();
+
+      if(!response.ok) {
+        console.log("Error logging in", responseData.message);
+      }
+      console.log(responseData.role);
+      const { token } = responseData
+
+      Auth.login(token);
     } catch (error) {
       return console.error('Error logging user in:', error);
     }
