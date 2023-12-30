@@ -1,7 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "./style.css";
+import Auth from '../../utils/auth';
 import { useState } from "react";
+import "./style.css";
 
 export default function Login() {
 
@@ -22,8 +23,15 @@ export default function Login() {
   }; 
   
 
-  const handleSumbit = (e) => {
+  const handleSumbit = async (e) => {
     e.preventDefault()
+    try {
+      // Login logic
+      // const response = await fetch('')
+      Auth.login()
+    } catch (error) {
+      return console.error('Error logging user in:', error);
+    }
     console.log("Form submited")
   }
   // console.log(formData)

@@ -5,6 +5,9 @@ import Auth from '../../utils/auth';
 import "./style.css";
 
 export default function Register() {
+
+  const [errorText, setErrorText] = useState("");
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -35,18 +38,29 @@ export default function Register() {
             
         });
         
-        if (response.ok) {
-            const responseData = await response.json();
-            console.log(responseData.token);
-            const {token} = responseData.data;
-           
-            console.log(`User with ${formData.role} created`, responseData);
-          
-           Auth.login(token);
-        
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          if(responseData.message === 'Admin Already Registered') {
+            setErrorText("Admin Already Registered")
+            setInterval(() => {
+              setErrorText("")
+            }, 3000)
+            
+          }
+
         } else {
-            console.error('Error creating user:', response.statusText );
-        }
+          
+          console.log(responseData.token);
+          const {token} = responseData.data;
+         
+          console.log(`User with ${formData.role} created`, responseData);
+        
+         Auth.login(token);
+          }
+        
+        
+    
 
     } catch (err) {
         // Catch any server side errors.
@@ -100,6 +114,9 @@ export default function Register() {
             onChange={handleInputChange}
             autoComplete="current-password"
           />
+          <div className="error--container">
+            <p className="errorText">{errorText}</p>
+          </div>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check

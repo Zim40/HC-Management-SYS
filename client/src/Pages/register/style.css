@@ -5,3 +5,7 @@ input#formBasicCheckbox {
     padding-left: 2em!important;
     min-Height: 2em!important;
 }
+.errorText {
+    color: red;
+    font-weight: 500;
+}

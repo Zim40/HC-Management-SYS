@@ -1,5 +1,6 @@
 const { Employee } = require("../models/index");
 const { signToken } = require('../utils/auth');
+const Auth = require('../utils/auth');
 // Dont forget to return token with user data in res-response
 
 module.exports = {
@@ -59,5 +60,28 @@ module.exports = {
         .json({ message: " Server side ERROR retrieving all Users. " });
     }
   },
+
+  async login(req, res) {
+    const { firstName, lastName, password} = req.body;
+    try {
+      const user = await Employee.findOne({firstName, lastName});
+
+      if(!user) {
+        return res.status(401).json({ message: "Authentication Failed. User not found "});
+      }
+      const isValidPassword = await user.isCorrectPassword(password)
+
+      if (!isValidPassword) {
+        res.status(401).json({ message: "Authentication Failed. Wrong Password!"});
+      }
+
+      const token = Auth.signToken(user._id);
+      res.json({ token });
+
+    } catch (err) {
+      console.error("Error:", err);
+      res.status(500).json({ message: "Internal Server Error."})
+    }
+  }
 
 };
