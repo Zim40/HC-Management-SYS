@@ -12,6 +12,11 @@ export default function NavBar({ currentPage, handlePageChange }) {
   // console.log(userRole);
   const user = Auth.loggedIn() ? Auth.getProfile().data : null;
   
+  const logout = (e) => {
+    e.preventDefault();
+    Auth.logout();
+  };
+  
   return (
     <>
       <Navbar expand="lg" collapseOnSelect className="bg-body-tertiary">
@@ -26,7 +31,7 @@ export default function NavBar({ currentPage, handlePageChange }) {
                   <Nav className="tabs--container">
                     <Link
                       to="/home"
-                      onClick={() => handlePageChange("Home")}
+                      onClick={() => handlePageChange()}
                       className={
                         currentPage === "Home"
                           ? "nav-link active custom-nav-link "
@@ -54,7 +59,10 @@ export default function NavBar({ currentPage, handlePageChange }) {
                   <Navbar.Text className="nav--text" style={{ color: "green" }}>
                     Signed in as: <a href="#login">{`${user.firstName} ${user.lastName}`}</a>
                   </Navbar.Text>
-                  <button>Logout</button>
+                  <button
+                  type="button"
+                  onClick={logout}
+                  >Logout</button>
                 </Navbar.Collapse>
               </Container>
             </>

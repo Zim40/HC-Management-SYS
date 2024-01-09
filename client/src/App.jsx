@@ -20,7 +20,7 @@ function App() {
         <Header />
           <Routes>
             <Route 
-              path="/"
+              path="/home"
               element={<Home />} />
             <Route 
               path="/Attendance" 

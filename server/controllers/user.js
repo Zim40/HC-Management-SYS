@@ -65,18 +65,20 @@ module.exports = {
     const { firstName, lastName, password} = req.body;
     try {
       const user = await Employee.findOne({firstName, lastName});
-
+      
       if(!user) {
         return res.status(401).json({ message: "Authentication Failed. User not found "});
       }
       const isValidPassword = await user.isCorrectPassword(password)
 
       if (!isValidPassword) {
-        res.status(401).json({ message: "Authentication Failed. Wrong Password!"});
+        return res.status(401).json({ message: "Authentication Failed. Wrong Password!"});
       }
-
-      const token = Auth.signToken(user._id);
-      res.json({ token });
+      console.log(user.firstName);
+      const token = Auth.signToken(user);
+      return res
+          .status(200)
+          .json({ message: 'User Successfully Logged In', data:  { token , user  }});
 
     } catch (err) {
       console.error("Error:", err);
