@@ -1,8 +1,9 @@
 import Header from "./Components/Header/index";
-import Home from "./Pages/Home";
+import Home from "./Pages/home/Home";
 import Login from './Pages/login/Login';
-import Attendance from './Pages/Attendance';
+import Attendance from './Pages/attendance/Attendance';
 import Register from './Pages/register/Register';
+import Landing from './Pages/landingPage/Landing'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./App.css";
@@ -19,6 +20,10 @@ function App() {
        
         <Header />
           <Routes>
+            <Route 
+            path="/"
+            element={<Landing />}
+            />
             <Route 
               path="/home"
               element={<Home />} />

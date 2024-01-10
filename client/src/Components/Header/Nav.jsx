@@ -8,15 +8,16 @@ import Auth from "../../utils/auth";
 
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ currentPage, handlePageChange }) {
-  // const userRole = Auth.loggedIn() ? Auth.getProfile().data.role : null;
-  // console.log(userRole);
   const user = Auth.loggedIn() ? Auth.getProfile().data : null;
-  
+
+  // const user = Auth.loggedIn() ? Auth.getProfile().data : null;
+  // console.log(user);
+
   const logout = (e) => {
     e.preventDefault();
     Auth.logout();
   };
-  
+
   return (
     <>
       <Navbar expand="lg" collapseOnSelect className="bg-body-tertiary">
@@ -42,27 +43,45 @@ export default function NavBar({ currentPage, handlePageChange }) {
                     >
                       Home
                     </Link>
-                    <Link
-                      to="/Attendance"
-                      onClick={() => handlePageChange()}
-                      className={
-                        currentPage === "Attendance"
-                          ? "nav-link active custom-nav-link "
-                          : "nav-link custom-nav-link"
-                      }
-                      // href="#landingPage"
-                      id="tabs"
-                    >
-                      Attendance
-                    </Link>
+                    {user.role === "ADMIN" ? (
+                      <Link
+                        to="/Attendance"
+                        onClick={() => handlePageChange()}
+                        className={
+                          currentPage === "Attendance"
+                            ? "nav-link active custom-nav-link "
+                            : "nav-link custom-nav-link"
+                        }
+                        // href="#landingPage"
+                        id="tabs"
+                      >
+                        Attendance
+                      </Link>
+                    ) : (
+                      <>
+                        <Link
+                          to="/Clock"
+                          onClick={() => handlePageChange()}
+                          className={
+                            currentPage === "ClockInOut"
+                              ? "nav-link active custom-nav-link "
+                              : "nav-link custom-nav-link"
+                          }
+                          // href="#landingPage"
+                          id="tabs"
+                        >
+                          ClockIn
+                        </Link>
+                      </>
+                    )}
                   </Nav>
                   <Navbar.Text className="nav--text" style={{ color: "green" }}>
-                    Signed in as: <a href="#login">{`${user.firstName} ${user.lastName}`}</a>
+                    Signed in as:{" "}
+                    <a href="#login">{`${user.firstName} ${user.lastName}`}</a>
                   </Navbar.Text>
-                  <button
-                  type="button"
-                  onClick={logout}
-                  >Logout</button>
+                  <button type="button" onClick={logout}>
+                    Logout
+                  </button>
                 </Navbar.Collapse>
               </Container>
             </>
