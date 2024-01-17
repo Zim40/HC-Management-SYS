@@ -58,7 +58,7 @@ export default function Home() {
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>Position: {employee.role}</ListGroup.Item>
                 <ListGroup.Item>Email: {employee.email}</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                <ListGroup.Item><a href={`/profile/${employee._id}`}>Link to profile</a></ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>

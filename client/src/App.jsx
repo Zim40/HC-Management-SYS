@@ -3,7 +3,8 @@ import Home from "./Pages/home/Home";
 import Login from './Pages/login/Login';
 import Attendance from './Pages/attendance/Attendance';
 import Register from './Pages/register/Register';
-import Landing from './Pages/landingPage/Landing'
+import Landing from './Pages/landingPage/Landing';
+import Profile from './Pages/profile/Profile';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./App.css";
@@ -36,6 +37,10 @@ function App() {
               <Route 
               path="/Register"
               element={<Register />}
+              />
+              <Route
+              path="/profile/:userId"
+              element={<Profile />}
               />
           </Routes>
         </Router>
