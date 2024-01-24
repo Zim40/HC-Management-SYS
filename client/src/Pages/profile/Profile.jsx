@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./style.css"
 
 export default function Profile() {
   const [employeeData, setEmployeeData] = useState({});
@@ -23,7 +24,7 @@ export default function Profile() {
         if (!response.ok) {
           console.log("Failed to fetch data.");
         } else {
-           setEmployeeData(responseData);
+          setEmployeeData(responseData);
         }
       } catch (error) {
         console.error("Error: ", error);
@@ -31,7 +32,7 @@ export default function Profile() {
     };
     fetchData();
   }, [userId]);
-  
+ 
 
   return (
     <>
@@ -40,10 +41,32 @@ export default function Profile() {
           <h1>
             {employeeData.data.firstName} {employeeData.data.lastName}
           </h1>
-          <ul style={{ listStyle: "none" }}>
-            <li>{employeeData.data.role}</li>
-            <li>{employeeData.data.email}</li>
-          </ul>
+          <div className="profile-info">
+            <p>
+              <strong>Role:</strong> {employeeData.data.role}
+            </p>
+            <p>
+              <strong>Email:</strong> {employeeData.data.email}
+            </p>
+          </div>
+
+          {employeeData.data.clockInOut &&
+          employeeData.data.clockInOut.length > 0 ? (
+            <>
+              <h2>Clock-In Times:</h2>
+              <div className="profile-time-container">
+              <ul>
+                {employeeData.data.formattedClockInOut.map((clockIn, index) => (
+                  <li key={index}>
+                    {clockIn.timestamp} - {clockIn.type}
+                  </li>
+                ))}
+              </ul>
+              </div>
+            </>
+          ) : (
+            <div>No clock-in times available</div>
+          )}
         </>
       ) : (
         <div>Loading</div>

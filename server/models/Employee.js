@@ -29,18 +29,18 @@ const employeeSchema = new Schema({
     required: true,
   },
 
-  // clockInOut: [
-  //   {
-  //     timestamp: {
-  //       type: Date,
-  //       required: true,
-  //     },
-  //     type: {
-  //       type: String, //'In' or 'Out'
-  //       required: true,
-  //     },
-  //   },
-  // ],
+  clockInOut: [
+    {
+      timestamp: {
+        type: Date,
+        required: true,
+      },
+      type: {
+        type: String, //'In' or 'Out'
+        required: true,
+      },
+    },
+  ],
  
 });
 
@@ -51,6 +51,29 @@ employeeSchema.pre("save", async function (next) {
   }
   next();
 });
+
+employeeSchema.virtual("formattedClockInOut").get(function () {
+  return this.clockInOut.map(entry => ({
+    timestamp: new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      // second: 'numeric',
+      // timeZoneName: 'short',
+    }).format(entry.timestamp),
+    type: entry.type,
+  }))
+})
+
+employeeSchema.set('toObject', { virtuals: true });
+employeeSchema.set('toJSON', { virtuals: true });
+
+
+
+
+
 
 employeeSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);

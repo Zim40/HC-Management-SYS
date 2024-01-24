@@ -16,7 +16,7 @@
 
 @media (max-width: 445px) {
     .timeNow {
-        display: none;
+        /* display: none; */
         
     }
 }
