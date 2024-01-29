@@ -5,10 +5,12 @@ import Attendance from './Pages/attendance/Attendance';
 import Register from './Pages/register/Register';
 import Landing from './Pages/landingPage/Landing';
 import Profile from './Pages/profile/Profile';
+import ClockIn from './Pages/clockIn/ClockIn';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
@@ -37,6 +39,10 @@ function App() {
               <Route 
               path="/Register"
               element={<Register />}
+              />
+              <Route
+              path="/Clock"
+              element={<ClockIn />}
               />
               <Route
               path="/profile/:userId"

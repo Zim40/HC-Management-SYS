@@ -63,7 +63,7 @@ export default function NavBar({ currentPage, handlePageChange }) {
                           to="/Clock"
                           onClick={() => handlePageChange()}
                           className={
-                            currentPage === "ClockInOut"
+                            currentPage === "ClockIn"
                               ? "nav-link active custom-nav-link "
                               : "nav-link custom-nav-link"
                           }

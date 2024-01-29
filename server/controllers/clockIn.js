@@ -8,7 +8,7 @@ async function clockIn(req, res) {
   try {
     // Fetch current timestamp
     const timestamp = new Date();
-
+    
     // Find employee by _id included in req.body
     const employee = await Employee.findById(req.body._id);
 
