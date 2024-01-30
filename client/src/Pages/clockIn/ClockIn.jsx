@@ -14,6 +14,33 @@ export default function ClockIn () {
          return token.data._id;
         }
     }
+    const handleClockOut =  async (e) => {
+        e.preventDefault();
+        
+            try {
+                const userId = await getUserId()
+                const response = await fetch(`http://localhost:5000/api/clockOut`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type" : "application/json"
+                    },
+                    body: JSON.stringify({_id: userId})
+                });
+                const responseData = await response.json();
+
+                if(!response.ok) {
+                    console.log(responseData.message);
+                    console.log("Error with response")
+                } else {
+                    console.log(responseData.message);
+                    console.log("User clockedOut")
+                }
+            } catch (error) {
+                console.log(error);
+                console.error("Error:", error);
+            }
+        
+    }
       
 
         
@@ -54,7 +81,7 @@ export default function ClockIn () {
           <button onClick={handleClockIn} type="button">
             Clock In
         </button>
-          <button type="button">Clock Out</button>
+          <button onClick={handleClockOut} type="button">Clock Out</button>
         </div>
       </>
     );
