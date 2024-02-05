@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useState, useEffect } from "react";
+import "./style.css"
 
 export default function Home() {
   if (!Auth.loggedIn()) {
@@ -52,13 +53,13 @@ export default function Home() {
               alt="Employee Image"
             />
             <Card.Body>
-              <Card.Title>
+              <Card.Title className="card-title">
                 {employee.firstName} {employee.lastName}
               </Card.Title>
               <ListGroup className="list-group-flush">
-                <ListGroup.Item>Position: {employee.role}</ListGroup.Item>
-                <ListGroup.Item>Email: {employee.email}</ListGroup.Item>
-                <ListGroup.Item><a href={`/profile/${employee._id}`}>Link to profile</a></ListGroup.Item>
+                <ListGroup.Item className="list-group-item">Position: {employee.role}</ListGroup.Item>
+                <ListGroup.Item className="list-group-item">Email: {employee.email}</ListGroup.Item>
+                <ListGroup.Item className="list-group-item"><a href={`/profile/${employee._id}`}>Link to profile</a></ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>

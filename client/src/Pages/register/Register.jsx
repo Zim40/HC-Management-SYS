@@ -72,7 +72,7 @@ export default function Register() {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <h1 style={{ textAlign: "left", fontSize: 24 }}>Register</h1>
+        <h1 style={{ textAlign: "left", fontSize: 24, color: "white" }}>Register</h1>
         <Form.Group className="mb-3" controlId="formBasicFirstName">
           <Form.Control
             type="username"
@@ -120,7 +120,7 @@ export default function Register() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
-            style={{ textAlign: "left" }}
+            style={{ textAlign: "left", color: "white" }}
             type="checkbox"
             label="Check for admin"
             name="role"

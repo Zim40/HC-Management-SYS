@@ -38,7 +38,7 @@ export default function Profile() {
     <>
       {employeeData && employeeData.data ? (
         <>
-          <h1>
+          <h1 className="profile--name">
             {employeeData.data.firstName} {employeeData.data.lastName}
           </h1>
           <div className="profile-info">

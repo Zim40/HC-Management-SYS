@@ -3,7 +3,7 @@
     border-radius: 10px;
     border: 1px solid  rgba(216, 109, 22, 0.399);
     font-size: 1em;
-    color: black;
+    color: white;
     padding: 5px;
     margin: 0;
     
@@ -16,7 +16,6 @@
 
 @media (max-width: 445px) {
     .timeNow {
-        /* display: none; */
-        
+        display: none;   
     }
 }

@@ -1,3 +1,7 @@
-.profile.info {
-    
+h1,
+p,
+h2,
+li,
+div {
+    color: white !important;
 }

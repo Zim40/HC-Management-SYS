@@ -54,7 +54,7 @@ export default function Login() {
 
   return (
     <Form>
-      <h1 style={{ textAlign: "left", fontSize: 24 }}>Login</h1>
+      <h1 style={{ textAlign: "left", fontSize: 24, color: "white" }}>Login</h1>
       <Form.Group className="mb-3" controlId="formBasicFirstName">
         <Form.Control
           type="username"

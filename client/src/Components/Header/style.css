@@ -1,15 +1,32 @@
 @media (max-width: 767px) {
-  button.navbar-toggler.collapsed {
-    /* max-width: 70px; */
+  button.toggle--menuBtn.navbar-toggler.collapsed {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* color: green; */
+    border: 1px solid white;
+    color: white!important;
+    font-size: 24px !important;
+    max-width: 150px;
+    padding: 5px;
+  }
+  
+  button.toggle--menuBtn.navbar-toggler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    color: white!important;
+    font-size: 24px !important;
+    max-width: 150px;
+    padding: 5px;
   }
   .tabs--container.navbar-nav {
     margin: 10px 0px;
-    background: rgba(216, 109, 22, 0.399);
+    /* background: rgba(216, 109, 22, 0.399); */
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   button.navbar-toggler {
     max-width: 70px;
@@ -17,21 +34,25 @@
 
   .nav--text {
     margin: 50px;
+    
   }
   .header--container {
     border: none;
     box-shadow: none;
+    background: transparent;
   }
   #tabs:hover {
     /* background-color:  rgba(216, 109, 22, 0.399); */
     border-radius: 5px;
     transform: none;
+    color: white;
   }
   .container {
     display: flex;
     flex-wrap: inherit;
     align-items: center;
     justify-content: center !important;
+    /* background: transparent; */
   }
   button.logBtn {
     width: 140px;
@@ -39,11 +60,13 @@
 }
 
 .header--container {
+  background: transparent !important;
   border-bottom: 2px solid rgba(216, 109, 22, 0.399);
+
 }
 /* Navbar tabs */
 #tabs {
-  color: black;
+  color: white;
   margin: 0px 30px;
   font-size: 1.2em;
   font-weight: 600;
@@ -77,3 +100,22 @@
   background-color: rgba(216, 109, 22, 0.867);
   transform: scale(1.05);
 }
+.logoutBtn {
+  max-width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
+  background-color: transparent !important;
+}
+
+/* .toggle--menuBtn {
+  border: 1px 1px solid white !important;
+  color: white!important;
+  font-size: 24px !important;
+} */
+
+

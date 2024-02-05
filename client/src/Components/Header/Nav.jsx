@@ -20,13 +20,13 @@ export default function NavBar({ currentPage, handlePageChange }) {
 
   return (
     <>
-      <Navbar expand="lg" collapseOnSelect className="bg-body-tertiary">
+      <Navbar expand="lg" collapseOnSelect  className="bg-body-tertiary" >
         <Container>
           <Navbar.Brand>{<Time />}</Navbar.Brand>
           {Auth.loggedIn() ? (
             <>
               <Container>
-                <Navbar.Toggle />
+                <Navbar.Toggle className="toggle--menuBtn"> Menu</Navbar.Toggle> 
 
                 <Navbar.Collapse className="justify-content-end">
                   <Nav className="tabs--container">
@@ -77,9 +77,9 @@ export default function NavBar({ currentPage, handlePageChange }) {
                   </Nav>
                   <Navbar.Text className="nav--text" style={{ color: "green" }}>
                     Signed in as:{" "}
-                    <a href="#login">{`${user.firstName} ${user.lastName}`}</a>
+                    <a style={{color: "white"}} href="#login">{`${user.firstName} ${user.lastName}`}</a>
                   </Navbar.Text>
-                  <button type="button" onClick={logout}>
+                  <button type="button" className="logoutBtn" onClick={logout}>
                     Logout
                   </button>
                 </Navbar.Collapse>

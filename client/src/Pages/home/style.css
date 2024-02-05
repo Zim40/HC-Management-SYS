@@ -1,0 +1,7 @@
+.card-title, .list-group-item  {
+    color: black!important;
+}
+.g-4.row.row-cols-md-4.row-cols-1 {
+    margin-top: 20px;
+}
+

@@ -1,0 +1,55 @@
+.clockInOut--container {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+    /* border: 1px solid black;  */
+    max-width: 700px;
+}
+.clockBtn {
+    width: 300px;
+    height: 300px;
+    border-radius: 180px;
+    font-size: 40px;
+}
+#clockInBtn {
+    background: green;
+}
+#clockOutBtn {
+    background: red;
+}
+#clockInBtn:hover {
+    
+    box-shadow: 1px 5px 10px 0px black;
+    opacity: 0.8;
+    border: none;
+}
+#clockOutBtn:hover {
+    
+    box-shadow: 1px 5px 10px 0px black;
+    border: none;
+    opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+    .clockBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 180px;
+        max-height: 120px;
+        /* border-radius: 50; */
+        font-size: 30px;
+    }
+    .clockInOut--container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5vh;
+        /* max-width: 700px; */
+        border: none;
+    }
+}
