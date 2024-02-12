@@ -20,7 +20,7 @@ export default function Login() {
     }));
   };
 
-  const handleSumbit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       // Login logic
@@ -93,7 +93,7 @@ export default function Login() {
       <div className="error--container">
             <p className="errorText">{errorText}</p>
           </div>
-      <Button variant="primary" type="submit" onClick={handleSumbit}>
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
     </Form>

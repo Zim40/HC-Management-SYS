@@ -2,9 +2,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./style.css"
 
-export default function Profile() {
+// eslint-disable-next-line react/prop-types
+export default function Profile({ userId: propsUserId }) {
   const [employeeData, setEmployeeData] = useState({});
-  const { userId } = useParams();
+  const { userId: paramsUserId } = useParams();
+  const userId = propsUserId || paramsUserId
 
   useEffect(() => {
     const fetchData = async () => {

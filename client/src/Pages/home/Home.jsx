@@ -4,13 +4,16 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useState, useEffect } from "react";
-import "./style.css"
+import Profile from "../profile/Profile"
+import imageSrc from "../../assets/pexels-johannes-plenio-1103970.jpg";
+import "./style.css";
 
 export default function Home() {
   if (!Auth.loggedIn()) {
     window.location.replace("/Login");
   }
-//   const [errorText, setErrorText] = useState("");
+  //   const [errorText, setErrorText] = useState("");
+  const user = Auth.loggedIn() ? Auth.getProfile().data : null;
 
   const [employeeData, setEmployeeData] = useState([]);
 
@@ -26,8 +29,8 @@ export default function Home() {
         const responseData = await response.json();
 
         if (!response.ok) {
-        //   setErrorText(responseData.message);
-          
+          //   setErrorText(responseData.message);
+
           setInterval(() => {
             // setErrorText("");
           }, 3000);
@@ -42,14 +45,16 @@ export default function Home() {
   }, []);
 
   return (
-    <Row xs={1} md={4} className="g-4">
-        
+    <>
+    
+      {user.role === "ADMIN" ? (
+        <Row xs={1} md={4} className="g-4">
       {employeeData.map((employee, idx) => (
         <Col key={idx}>
           <Card>
             <Card.Img
               variant="top"
-              src="holder.js/100px160"
+              src={imageSrc}
               alt="Employee Image"
             />
             <Card.Body>
@@ -57,14 +62,28 @@ export default function Home() {
                 {employee.firstName} {employee.lastName}
               </Card.Title>
               <ListGroup className="list-group-flush">
-                <ListGroup.Item className="list-group-item">Position: {employee.role}</ListGroup.Item>
-                <ListGroup.Item className="list-group-item">Email: {employee.email}</ListGroup.Item>
-                <ListGroup.Item className="list-group-item"><a href={`/profile/${employee._id}`}>Link to profile</a></ListGroup.Item>
+                <ListGroup.Item className="list-group-item">
+                  Position: {employee.role}
+                </ListGroup.Item>
+                <ListGroup.Item className="list-group-item">
+                  Email: {employee.email}
+                </ListGroup.Item>
+                <ListGroup.Item className="list-group-item">
+                  <a href={`/profile/${employee._id}`}>Link to profile</a>
+                </ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>
         </Col>
       ))}
     </Row>
+
+      ) : (
+       <Profile userId={user._id} /> 
+      )}
+      
+    
+      
+    </>
   );
 }

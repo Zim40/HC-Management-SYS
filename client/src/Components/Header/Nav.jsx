@@ -20,13 +20,13 @@ export default function NavBar({ currentPage, handlePageChange }) {
 
   return (
     <>
-      <Navbar expand="lg" collapseOnSelect  className="bg-body-tertiary" >
+      <Navbar expand="lg" collapseOnSelect className="bg-body-tertiary">
         <Container>
           <Navbar.Brand>{<Time />}</Navbar.Brand>
           {Auth.loggedIn() ? (
             <>
               <Container>
-                <Navbar.Toggle className="toggle--menuBtn"> Menu</Navbar.Toggle> 
+                <Navbar.Toggle className="toggle--menuBtn"> Menu</Navbar.Toggle>
 
                 <Navbar.Collapse className="justify-content-end">
                   <Nav className="tabs--container">
@@ -41,23 +41,23 @@ export default function NavBar({ currentPage, handlePageChange }) {
                       // href="#home"
                       id="tabs"
                     >
-                      Home
+                      Profile
                     </Link>
-                    {user.role === "ADMIN" ? (
-                      <Link
-                        to="/Attendance"
-                        onClick={() => handlePageChange()}
-                        className={
-                          currentPage === "Attendance"
-                            ? "nav-link active custom-nav-link "
-                            : "nav-link custom-nav-link"
-                        }
-                        // href="#landingPage"
-                        id="tabs"
-                      >
-                        Attendance
-                      </Link>
-                    ) : (
+                    {user.role === "ADMIN" ? null : (
+                      //   <Link
+                      //     to="/Attendance"
+                      //     onClick={() => handlePageChange()}
+                      //     className={
+                      //       currentPage === "Attendance"
+                      //         ? "nav-link active custom-nav-link "
+                      //         : "nav-link custom-nav-link"
+                      //     }
+                      //     // href="#landingPage"
+                      //     id="tabs"
+                      //   >
+                      //     Attendance
+                      //   </Link>
+                      // ) : (
                       <>
                         <Link
                           to="/Clock"
@@ -72,12 +72,29 @@ export default function NavBar({ currentPage, handlePageChange }) {
                         >
                           ClockIn
                         </Link>
+
+                        <Link
+                          to="/"
+                          onClick={() => handlePageChange()}
+                          className={
+                            currentPage === "landingPage"
+                              ? "nav-link active custom-nav-link "
+                              : "nav-link custom-nav-link"
+                          }
+                          // href="#landingPage"
+                          id="tabs"
+                        >
+                          Home
+                        </Link>
                       </>
                     )}
                   </Nav>
                   <Navbar.Text className="nav--text" style={{ color: "green" }}>
                     Signed in as:{" "}
-                    <a style={{color: "white"}} href="#login">{`${user.firstName} ${user.lastName}`}</a>
+                    <a
+                      style={{ color: "white" }}
+                      href="#login"
+                    >{`${user.firstName} ${user.lastName}`}</a>
                   </Navbar.Text>
                   <button type="button" className="logoutBtn" onClick={logout}>
                     Logout

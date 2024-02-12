@@ -21,7 +21,7 @@
     padding: 5px;
   }
   .tabs--container.navbar-nav {
-    margin: 10px 0px;
+    margin: 30px 0px;
     /* background: rgba(216, 109, 22, 0.399); */
     border-radius: 5px;
     display: flex;
@@ -32,10 +32,7 @@
     max-width: 70px;
   }
 
-  .nav--text {
-    margin: 50px;
-    
-  }
+  
   .header--container {
     border: none;
     box-shadow: none;
@@ -67,16 +64,23 @@
 /* Navbar tabs */
 #tabs {
   color: white;
-  margin: 0px 30px;
+  margin: 10px;
+  margin-left: 15px;;
   font-size: 1.2em;
-  font-weight: 600;
+  font-weight: 300;
   transition: background-color 0.3s, border-radius 0.3s, font-size 0.1s;
-  padding: 0px 2px;
+  padding-right: 10px;
+  padding-top: 1px;
+  padding-bottom:1px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
   transform-origin: top left;
 }
 #tabs:hover {
   background-color: rgba(216, 109, 22, 0.399);
   border-radius: 5px;
+  
+  
 }
 .tabs--container {
   white-space: nowrap;
@@ -90,26 +94,33 @@
   padding: 0;
 }
 .logBtn {
-  background-color: rgba(216, 109, 22, 0.399);
-  color: black;
+  background: transparent;
+  color: white;
   width: 90px;
-  margin: 5px;
+  margin-bottom: 0px;
   padding: 5px;
+  border-color: rgba(216, 109, 22, 0.399); 
 }
 .logBtn:hover {
+  
   background-color: rgba(216, 109, 22, 0.867);
   transform: scale(1.05);
 }
 .logoutBtn {
   max-width: 100px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: red;
+  border-color: red;
+  padding: 0;
+  
   
 }
 nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   background-color: transparent !important;
+}
+.navbar-text {
+  padding-bottom: 0;
+  margin-left: auto;
 }
 
 /* .toggle--menuBtn {
