@@ -1,139 +1,63 @@
-# Employee Management System
- - *This application will handle all employee **clock in / out** activity including **timesheets** used in weekly wage calculations.* <br>
- - *Future features include **Visitor / Contractor** sign in forms and **induction tests**.*
 
- Below is a basic overview of potential MongoDB Models covering Employee, Activities (including inserting activity names) and Timesheets.
->Future development may require change to these structures.
-<details>
-<summary>Employee Schema</summary>
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
- ```js
-//  <!-- Employee Schema -->
- const mongoose = require('mongoose');
+### **Table of Contents** <br>
+***
+ [**About**](#about)<br>
+ [**Description**](#description)<br>
+ [**Future Development**](#future-development)<br>
+ [**Installation**](#installation)<br>
+ [**Usage**](#usage)<br>
+ [**Contributer**](#contributer)<br>
+ [**Contact**](#contact)<br>
+ [**Licence Information**](#licence)<br>
+ 
 
-const employeeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-});
-const Employee = mongoose.model('Employee', employeeSchema);
-module.exports = Employee;
-```
-</details>
-<details>
-<summary>Activity Schema / Populate file</summary>
+# About HC-Management System
 
-```js
-// <!-- Activity Schema -->
-const mongoose = require('mongoose');
+HC-Management System is a user-friendly application designed to streamline time tracking and employee management processes. Whether you're an employee or an administrator, our platform offers intuitive features to enhance efficiency and productivity in your workplace.
 
-const activitySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-  },
-});
-const Activity = mongoose.model('Activity', activitySchema);
-module.exports = Activity;
-```
-```js
-// insertMany to populate activity schema
-const Activity = require('./activityModel');
+## For Employees
 
-const predefinedActivities = [
-  {
-    name: 'Head Machining',
-  },
-  {
-    name: 'Stave Machining',
-  },
-  {
-    name: 'Assembly',
-  },
-  {
-    name: 'Heading',
-  },
-  {
-    name: 'Finishing',
-  },
-  {
-    name: 'Branding/Wrapping',
-  },
-  {
-    name: 'Heinrich Rework',
-  },
-  {
-    name: 'Imported Barrels Reworks',
-  },
-  {
-    name: 'Contract Barrel Reworks',
-  },
-  {
-    name: 'Warehouse General',
-  },
-  {
-    name: 'Oak Solutions',
-  },
-  {
-    name: 'Training',
-  },
-  {
-    name: 'Miscellaneous',
-  },
-];
+Employees can easily access the system to log their working hours by simply clocking in and out. Additionally, they have the convenience of accessing their own profiles to review their time records stored securely in the database.
 
-// Add predefined activities to the database
-Activity.insertMany(predefinedActivities)
-  .then((activities) => {
-    // Predefined activities added successfully
-  })
-  .catch((error) => {
-    // Handle any errors
-  });
+## For Administrators
 
-```
-</details>
-<details>
-<summary>Timesheet Schema</summary>
+Admin users play a pivotal role in overseeing the system and managing user accounts effectively. By selecting the Admin role during registration, administrators gain control over account creation, ensuring that only authorized personnel can register new accounts. They have the capability to view all registered users and access comprehensive attendance logs. 
 
-```js
-// <!-- timeSheet Schema -->
-const mongoose = require('mongoose');
+ 
+# **Description**
+HC-Management system is an application that allows users (**Employees**) to log in to their account and *Clock In* and *Clock Out*. Users also have the ability to access their own profile and view their times that are stored in the database. 
+  <br>
+  <br>
+ If **Admin** is selected when registering an account this means that any future registered users will not be able to create another account ensuring overall data is not present for Employee classified users. 
+  <br>
+  <br>
+   **Admin** users have the ability to view all users registered in the database alongside Attendance logs. Future Development will allow **Admin** users to download this data into an excel sheets for data isolation purposes.
 
-const timesheetSchema = new mongoose.Schema({
-  employee: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Employee',
-    required: true,
-  },
-  date: {
-    type: Date,
-    required: true,
-  },
-  activity: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Activity',
-    required: true,
-  },
-  hours: {
-    type: Number,
-    required: true,
-  },
-});
-const Timesheet = mongoose.model('Timesheet', timesheetSchema);
-module.exports = Timesheet;
-```
-</details>
+# **Future Development**
+Future Development includes but not limited to:
+<li>Ability to download Log data for data analysis and reporting.
+<li>Ability to edit Employee personal information.
+<li>
+<br>
+
+## **Installation**
+
+## **Usage**
+
+## **Contributers**
+
+## **Contact**
+
+## **Licence**
+
+## **Demo** (OPTIONAL)
+
+## **Screenshot** (OPTIONAL)
+
+## Licence
+
+
+
+## Screenshot (OPTIONAL)
