@@ -1,4 +1,5 @@
 import "./style.css";
+// import hero from "../../assets/pexels-johannes-plenio-1103970.jpg"
 import NavBar from "./Nav";
 import { useState } from "react";
 
@@ -12,6 +13,7 @@ export default function Header() {
   return (
     <>
       <div className="header--container">
+        {/* <img className="hero--img" src={hero} alt="Hero"></img> */}
         <NavBar 
           currentPage={currentPage} 
           handlePageChange={handlePageChange} />

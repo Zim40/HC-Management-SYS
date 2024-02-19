@@ -74,7 +74,7 @@ export default function ClockIn() {
 
   return (
     <>
-    <p>Select In/Out to record attendance</p>
+    <p className="clockIn--text">Select In/Out to record attendance</p>
       <div className="clockInOut--container">
         <button id="clockInBtn" className="clockBtn" onClick={handleClockIn} type="button">
          In ⌚

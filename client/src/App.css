@@ -3,6 +3,17 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* background-image: url("./assets//pexels-johannes-plenio-1103970.jpg");
+  background-size: cover;
+  background-position: center; */
+}
+
+html {
+  background-image: url("./assets//pexels-johannes-plenio-1103970.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
 }
 
 

@@ -4,4 +4,7 @@
 .g-4.row.row-cols-md-4.row-cols-1 {
     margin-top: 20px;
 }
+.Card {
+    box-shadow: 2px 2px 10px ;
+}
 

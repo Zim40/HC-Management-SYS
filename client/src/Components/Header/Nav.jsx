@@ -92,7 +92,7 @@ export default function NavBar({ currentPage, handlePageChange }) {
                   <Navbar.Text className="nav--text" style={{ color: "green" }}>
                     Signed in as:{" "}
                     <a
-                      style={{ color: "white" }}
+                      
                       href="#login"
                     >{`${user.firstName} ${user.lastName}`}</a>
                   </Navbar.Text>

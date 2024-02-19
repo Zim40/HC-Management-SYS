@@ -51,7 +51,7 @@ export default function Home() {
         <Row xs={1} md={4} className="g-4">
       {employeeData.map((employee, idx) => (
         <Col key={idx}>
-          <Card>
+          <Card className="Card">
             <Card.Img
               variant="top"
               src={imageSrc}

@@ -1,10 +1,18 @@
 form {
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-top: 50px;
     max-width: 500px;
-
+    border: 1px solid black;
+    box-shadow: 2px 2px 10px ;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgba(175, 175, 175, 0.5);
 }
 button.btn.btn-primary {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
