@@ -40,14 +40,15 @@ export default function Profile({ userId: propsUserId }) {
     <>
       {employeeData && employeeData.data ? (
         <>
+         <div className="profile--container">
           <h1 className="profile--name">
             {employeeData.data.firstName} {employeeData.data.lastName}
           </h1>
           <div className="profile-info">
-            <p>
+            <p className="profile--role">
               <strong>Role:</strong> {employeeData.data.role}
             </p>
-            <p>
+            <p className="profile--email">
               <strong>Email:</strong> {employeeData.data.email}
             </p>
           </div>
@@ -69,6 +70,7 @@ export default function Profile({ userId: propsUserId }) {
           ) : (
             <div>No clock-in times available</div>
           )}
+          </div>
         </>
       ) : (
         <div>Loading</div>

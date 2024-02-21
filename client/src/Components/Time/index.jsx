@@ -32,9 +32,13 @@ export default function Time() {
   return (
     <>
       {formattedTime ? (
-        <p className="timeNow">{formattedTime}</p>
+        <div className="timeNow--container">
+          <p className="timeNow">{formattedTime}</p>
+        </div>
       ) : (
-        <p className="loading">Loading...</p>
+        <div className="timeNow--container">
+          <p className="loading"></p>
+        </div>
       )}
     </>
   );

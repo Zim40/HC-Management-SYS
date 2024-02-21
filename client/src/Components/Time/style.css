@@ -2,17 +2,30 @@
     font-weight: 600;
     border-radius: 10px;
     border: 1px solid  rgba(216, 109, 22, 0.399);
-    font-size: 1em;
+    font-size: 0.8em;
     color: black;
     padding: 5px;
     margin: 0;
     
 }
-.loading {
-    font-size: 0.7em;
-    font-weight: 300;
-    color: red
+.timeNow--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+.loading {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
 
 @media (max-width: 445px) {
     .timeNow {

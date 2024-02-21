@@ -63,13 +63,13 @@ export default function Home() {
               </Card.Title>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item className="list-group-item">
-                  Position: {employee.role}
+                  <strong>Position:</strong> {employee.role}
                 </ListGroup.Item>
                 <ListGroup.Item className="list-group-item">
-                  Email: {employee.email}
+                  <strong>Email:</strong> {employee.email}
                 </ListGroup.Item>
                 <ListGroup.Item className="list-group-item">
-                  <a href={`/profile/${employee._id}`}>Link to profile</a>
+                  <a href={`/profile/${employee._id}`}><strong>Link to profile</strong></a>
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>

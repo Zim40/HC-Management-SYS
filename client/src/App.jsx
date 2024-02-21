@@ -6,6 +6,7 @@ import Register from './Pages/register/Register';
 import Landing from './Pages/landingPage/Landing';
 import Profile from './Pages/profile/Profile';
 import ClockIn from './Pages/clockIn/ClockIn';
+import Footer from './Components/Footer/index';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./App.css";
@@ -49,7 +50,10 @@ function App() {
               element={<Profile />}
               />
           </Routes>
+          
         </Router>
+        <Footer />
+        
       
     </>
   );
